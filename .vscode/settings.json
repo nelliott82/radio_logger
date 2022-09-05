@@ -1,3 +1,25 @@
 {
+    "[css]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "[html]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "[jsonc]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+
     "liveServer.settings.port": 5501
 }

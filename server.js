@@ -46,7 +46,11 @@ app.get('/signup', function(req, res) {
   res.sendFile(componentsDirUrl + '/signup.html', { root: __dirname });
 });
 
-app.post('/login', (req, res) => {
+app.get('/signup', function(req, res) {
+  res.sendFile(componentsDirUrl + '/mwlog.html', { root: __dirname });
+});
+
+app.post('/signin', (req, res) => {
   // Insert Login Code Here
   let username = req.body.username;
   let password = req.body.password;
