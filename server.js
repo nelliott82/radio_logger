@@ -4,6 +4,7 @@ const router = express.Router()
 const hostname = '127.0.0.1';
 const port = 3000;
 const path = require('path');
+const cors = require('cors');
 const bodyParser = require('body-parser'); // Middleware
 const componentsDirUrl = './src/client/src/components';
 
@@ -27,7 +28,7 @@ app.get('/contestlog', (req, res) => {
 });
 
 app.get('/scanlog', (req, res) => {
-  res.sendFile(componentsDirUrl + '/scanLog.html', { root: __dirname });
+  res.sendFile(componentsDirUrl + '/scanlog.html', { root: __dirname });
 });
 
 app.get('/swllog', (req, res) => {
@@ -46,7 +47,7 @@ app.get('/signup', function(req, res) {
   res.sendFile(componentsDirUrl + '/signup.html', { root: __dirname });
 });
 
-app.get('/signup', function(req, res) {
+app.get('/mwlog', function(req, res) {
   res.sendFile(componentsDirUrl + '/mwlog.html', { root: __dirname });
 });
 
@@ -59,6 +60,10 @@ app.post('/signin', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+});
+
+app.use((req, res) => {
+  res.status(404).render('404', { title: '404' });
 });
 
 module.exports = router;
