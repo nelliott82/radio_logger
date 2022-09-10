@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Logger</title>
     <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-     <meta name="keywords" content="">
+    <meta name="keywords" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+        integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
         integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -26,7 +28,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta name="theme-color" content="gray" />
     <link rel="manifest" href="/manifest.json">
     <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
@@ -35,18 +37,19 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-        
+
         <div class="container-fluid">
             <div id="row flex-nowrap">
                 <div id="d-flex sidebar-wrapper">
-                    <i class="fa-solid fa-bars fa-2x"></i>    
+                    <i class="fa-solid fa-bars fa-2x"></i>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>    
+                    <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand mb-0 h1" href="#">RadioLogger</a>
                     <ul class="sidebar-nav sidebar-brand">
-                        <a class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
+                        <a
+                            class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
                         <div class="collapse navbar-collapse navHeaderCollapse"></div>
                     </ul>
                 </div>
@@ -82,8 +85,7 @@
             </div>
             <div class="col-sm-1">
                 <label for="number">Frequency:</label>
-                <input type="number" class="form-control" name="number" value="1.800.00" min="1800.00"
-                    max="29700.00">
+                <input type="number" class="form-control" name="number" value="1.800.00" min="1800.00" max="29700.00">
             </div>
             <div class="col-sm-1">
                 <label for="text">Station:</label>
@@ -92,76 +94,104 @@
             <div class="col-sm-1">
                 <label for="text">via:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">Sackville</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">Sackville</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">Continent:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option value="1">Asia</option>
+                    <option value="2">Europe</option>
+                    <option value="3">North America</option>
+                    <option value="3">South America</option>
+                    <option value="3">Africa</option>
+                    <option value="3">Antarctica</option>
+                    <option value="3">Oceania</option>
                 </select>
             </div>
+            <script>
+                function fileDropdown() {
+                    $.getJSON("/countries.json", function (result) {
+                        //find the array and do something
+                        var options = "";
+                        $.each(result.Files, function (key, val) {
+                            options += '<option value="' + val.fileID + '">' + val.fileName + '</option>';
+                        });
+                        var select = $('<select/>');
+                        select.append(options);
+                        $(document.body).append(select);
+                    });
+                };
+            </script>
             <div class="col-sm-1">
                 <label for="text">Country:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">USA</option>
-                <option value="2">Canada</option>
-                <option value="3">Mexico</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">USA</option>
+                    <option value="2">Canada</option>
+                    <option value="3">Mexico</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">Target Continent:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">Asia</option>
-                <option value="2">Africa</option>
-                <option value="3">North America</option>
-                <option value="3">South America</option>
-                <option value="3">Australia</option>
-                <option value="3">Europe</option>
-                <option value="3">Antarctica</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">Asia</option>
+                    <option value="2">Africa</option>
+                    <option value="3">North America</option>
+                    <option value="3">South America</option>
+                    <option value="3">Australia</option>
+                    <option value="3">Europe</option>
+                    <option value="3">Antarctica</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">ITU Region:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
-            // There are 90 ITU zones. This needs to call in some JSON for option values.
+
+            <!-- There are 90 ITU zones. This needs to call in some JSON for option values. -->
+            <script>
+                function fileDropdown() {
+                    $.getJSON("ituzones.json", function (result) {
+                        //find the array and do seomthing
+                        var options = "";
+                        $.each(result.Files, function (key, val) {
+                            options += '<option value="' + val.fileID + '">' + val.fileName + '</option>';
+                        });
+                        var select = $('<select/>');
+                        select.append(options);
+                        $(document.body).append(select);
+                    });
+            </script>
             <div class="col-sm-1">
                 <label for="text">ITU Zone:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">1</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">1</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="number">SINPO:</label>
-                <input type="number" class="form-control" name="number" value="11111" min="11111"
-                    max="99999">
+                <input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
             </div>
             <div class="col-sm-1">
                 <label for="number">SINAD:</label>
-                <input type="number" class="form-control" name="number" value="11111" min="11111"
-                    max="99999">
+                <input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
             </div>
             <div class="col-sm-1">
                 <label for="number">R-S-T:</label>
-                <input type="number" class="form-control" name="number" value="111" min="111"
-                    max="999">
+                <input type="number" class="form-control" name="number" value="111" min="111" max="999">
             </div>
             <div class="col-sm-1">
                 <label for="text">Band:</label>
@@ -209,33 +239,39 @@
             <div class="col-sm-1">
                 <label for="text">Season:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">Winter</option>
-                <option value="2">Spring</option>
-                <option value="3">Summer</option>
-                <option value="4">Fall</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">Winter</option>
+                    <option value="2">Spring</option>
+                    <option value="3">Summer</option>
+                    <option value="4">Fall</option>
                 </select>
             </div>
             <div>
-            <br>
+                <br>
             </div>
             <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">S-Units</button>
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">S-Units</button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">+</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">-</a></li>
+                    <li><a class="dropdown-item" href="#">+</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">-</a></li>
                 </ul>
                 <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">dB</button>
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">dB</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                 </ul>
-              </div>
+            </div>
         </div>
     </form>
     <br>
@@ -252,87 +288,88 @@
     <hr>
     <div class="modal" tabindex="-1">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
         </div>
-      </div>
-      <br>
-      Is this signal Jammed?
-      <div class="form-check">
+    </div>
+    <br>
+    Is this signal Jammed?
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-        Yes
+            Yes
         </label>
-      </div>
-      <div class="form-check">
+    </div>
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
         <label class="form-check-label" for="flexCheckChecked">
-          No
+            No
         </label>
-      </div>
-      <br>
-      <br>
-      Has this station's schedule changed?
-      <div class="form-check">
+    </div>
+    <br>
+    <br>
+    Has this station's schedule changed?
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-        Yes
+            Yes
         </label>
-      </div>
-      <div class="form-check">
+    </div>
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
         <label class="form-check-label" for="flexCheckChecked">
-          No
+            No
         </label>
-      </div>
-      <br>
-      <br>
-      Have you Sent or Received a QSL for this station?
-      <div class="form-check">
+    </div>
+    <br>
+    <br>
+    Have you Sent or Received a QSL for this station?
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-        Yes
+            Yes
         </label>
-      </div>
-      <div class="form-check">
+    </div>
+    <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
         <label class="form-check-label" for="flexCheckChecked">
-          No
+            No
         </label>
-      </div>
-      <br>
-      <div class="col-lg-2 mb-3">
+    </div>
+    <br>
+    <div class="col-lg-2 mb-3">
         <label for="formFileMultiple" class="form-label">Upload Log Files:</label>
         <input class="form-control" type="file" id="formFileMultiple" multiple>
-      </div>
-      <br>
-      <br>
-      <div class="col-lg-2 mb-3">
+    </div>
+    <br>
+    <br>
+    <div class="col-lg-2 mb-3">
         <label for="formFileMultiple" class="form-label">Export Log Files:</label>
         <input class="form-control" type="file" id="formFileMultiple" multiple>
-      </div>
-      <br>
+    </div>
+    <br>
     <a class="btn btn-primary" href="#">
         <i class="fa-solid fa-floppy-disk fa-lg"></i> Save Log </a>
     <a class="btn btn-danger" href="#">
         <i class="fa-solid fa-trash fa-lg"></i> Delete Log </a>
     <a class="btn btn-secondary" href="#">
         <i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
-      <br>
-      <br>
-      <br>
+    <br>
+    <br>
+    <br>
     <script src="/index.js"></script>
-    <script defer src="/src/client/src/components/swlLog.js"></script>
+    <script defer src="/swlLog.js"></script>
 </body>
+
 </html>

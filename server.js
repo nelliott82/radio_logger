@@ -4,9 +4,16 @@ const router = express.Router()
 const hostname = '127.0.0.1';
 const port = 3000;
 const path = require('path');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser'); // Middleware
 const componentsDirUrl = './src/client/src/components';
+
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/test');
+  
+  // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
+}
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -51,6 +58,10 @@ app.get('/mwlog', function(req, res) {
   res.sendFile(componentsDirUrl + '/mwlog.html', { root: __dirname });
 });
 
+app.get('/vhflog', function(req, res) {
+  res.sendFile(componentsDirUrl + '/vhflog.html', { root: __dirname });
+});
+
 app.post('/signin', (req, res) => {
   // Insert Login Code Here
   let username = req.body.username;
@@ -62,9 +73,10 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
 
-app.use((req, res) => {
+/* app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
+*/
 
 module.exports = router;
 

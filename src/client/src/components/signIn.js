@@ -40,3 +40,6 @@ function login() {
   };
   return false;
 }
+
+Auth.signIn(this.state.username, this.state.password).then((user) => {this.setState({ user, showConfirmation: true });}).catch((err) => console.log('error signing in...: ', err));
+
