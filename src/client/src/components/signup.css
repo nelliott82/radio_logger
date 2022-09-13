@@ -11,11 +11,11 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: gray;
   overflow: hidden;
 }
 .container {
-  max-width: 700px;
+  max-width: 2020px;
   width: 100%;
   background: #fff;
   padding: 25px 30px;

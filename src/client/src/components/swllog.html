@@ -259,18 +259,27 @@
                     </li>
                     <li><a class="dropdown-item" href="#">-</a></li>
                 </ul>
-                <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">dB</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-2 mb-3">
+                <label for="formFileMultiple" class="form-label">Upload Log Files:</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+            <br>
+            <br>
+            <div class="col-lg-2 mb-3">
+                <label for="formFileMultiple" class="form-label">Export Log Files:</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+            <br>
+            <div>
+            <a class="btn btn-primary btn" href="#">
+                <i class="fa-solid fa-floppy-disk fa-lg col-xs-5"></i> Save Log </a>
+            <a class="btn btn-danger" href="#">
+                <i class="fa-solid fa-trash fa-lg"></i> Delete Log </a>
+            <a class="btn btn-secondary " href="#">
+                <i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
             </div>
         </div>
     </form>

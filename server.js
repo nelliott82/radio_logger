@@ -15,9 +15,21 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
 }
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.set('view engine', 'html');
+
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
+app.use(cors({credentials: true, origin: true}));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('port', (process.env.PORT || 3000));
+
+app.use(express.static(path.join(__dirname, '/public')));
 
 // for including all css & image file in server
 app.use(express.static(__dirname + "/public"));
@@ -77,6 +89,24 @@ app.listen(port, () => {
   res.status(404).render('404', { title: '404' });
 });
 */
+
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'example.com');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+
+//...
+app.configure(function() {
+  app.use(express.bodyParser());
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'cool beans' }));
+  app.use(express.methodOverride());
+  app.use(allowCrossDomain);
+});
+
 
 module.exports = router;
 

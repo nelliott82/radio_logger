@@ -6,3 +6,25 @@
   height: 10rem;
   object-fit: cover;
 }
+
+.dark-mode {
+  background-color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: #000000;
+    --body-color: #FFFFFF;
+  }
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color: #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --body-bg: #FFFFFF;
+    --body-color: #000000;
+  }
+  .day.light-scheme   { background: white; color: #555; }
+  .night.light-scheme { background:  #eee; color: black; }
+}
