@@ -17,6 +17,8 @@ async function main() {
 
 app.set('view engine', 'html');
 
+app.use(express.static(config.set('/components')));
+
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -30,9 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/src/client/src/components')));
 
 // for including all css & image file in server
 app.use(express.static(__dirname + "/public"));
+
+app.use(express.static(__dirname +"/src/client/src/components"));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -81,8 +86,16 @@ app.post('/signin', (req, res) => {
   res.send(`Username: ${username} Password: ${password}`);
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+// Route to Login Page
+app.get('/login', (req, res) => {
+  res.sendFile(__dirname + '/signin.html');
+});
+
+app.post('/login', (req, res) => {
+  // Insert Login Code Here
+  let username = req.body.username;
+  let password = req.body.password;
+  res.send(`Username: ${username} Password: ${password}`);
 });
 
 /* app.use((req, res) => {
@@ -98,7 +111,7 @@ var allowCrossDomain = function(req, res, next) {
   next();
 }
 
-//...
+/*
 app.configure(function() {
   app.use(express.bodyParser());
   app.use(express.cookieParser());
@@ -106,7 +119,5 @@ app.configure(function() {
   app.use(express.methodOverride());
   app.use(allowCrossDomain);
 });
-
-
+*/
 module.exports = router;
-
