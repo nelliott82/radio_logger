@@ -37,7 +37,6 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-
         <div class="container-fluid">
             <div id="row flex-nowrap">
                 <div id="d-flex sidebar-wrapper">
@@ -94,7 +93,6 @@
             <div class="col-sm-1">
                 <label for="text">via:</label>
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
                     <option value="1">Sackville</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -246,21 +244,27 @@
                     <option value="4">Fall</option>
                 </select>
             </div>
-            <div>
-                <br>
+
+            <div class="col-sm-1">
+                <label for="text">Power (kW)</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option value="1">5kW</option>
+                    <option value="2">10kW</option>
+                    <option value="4">15kW</option>
+                    <option value="5">20kW</option>
+                    <option value="6">25kW</option>
+                    <option value="7">30kW</option>
+                    <option value="8">35kW</option>
+                    <option value="9">40kW</option>
+                </select>
             </div>
-            <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">S-Units</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">+</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">-</a></li>
-                </ul>
-                <br>
-                <br>
+            <div class="col-sm-1">
+                <label for="number">Distance</label>
+                <input type="number" class="form-control" name="number" value="" min="" max="">
+            </div>
+            <br><br>
+            <div>
+                
             </div>
             <div class="col-lg-2 mb-3">
                 <label for="formFileMultiple" class="form-label">Upload Log Files:</label>
@@ -377,6 +381,7 @@
     <br>
     <br>
     <br>
+   
     <script src="/index.js"></script>
     <script defer src="/swlLog.js"></script>
 </body>

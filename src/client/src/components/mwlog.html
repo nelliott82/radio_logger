@@ -30,12 +30,12 @@
     <meta name="theme-color" content="gray" />
     <link rel="manifest" href="/manifest.json">
     <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <link rel="stylesheet" type="text/css" href="/src/client/src/components/mwlog.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-        
         <div class="container-fluid">
             <div id="row flex-nowrap">
                 <div id="d-flex sidebar-wrapper">
@@ -59,58 +59,39 @@
         <p><i class="fa-solid fa-circle-user fa-2x fa-fw"></i></p>
     </nav>
     <form>
+      <div>
+        <h3>MW Log</h3>
+      </div>
+      <div class="row g-1">
+        <div class="col-sm-1">
+          <label for="start">Start date:</label>
+          <input type="date" class="form-control" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+        </div>
+        <div class="col-sm-1">
+          <div class="form-group">
+            <label for="time">Start Time:</label>
+            <input type="time" class="form-control form-group" id="datetimepicker">
+          </div>
+        </div>
+        <div class="col-sm-1">
+          <div class="form-group">
+            <label for="time">End Time:</label>
+            <input type="time" class="form-control form-group" id="datetimepicker">
+          </div>
+        </div>
+        <div class="col-sm-1">
+          <label for="number">Frequency:</label>
+          <input type="number" class="form-control" name="number" value="530.00" min="530.00" max="1701.99">
+        </div>
+        <div class="col-sm-1">
+          <label for="text">Call Letters:</label>
+          <input type="text" class="form-control" name="text" value="Call Sign">
+        </div>
+    
         <div>
-            <h3>MW Log</h3>
+          <br>
         </div>
-        <div class="row g-1">
-            <div class="col-sm-1">
-                <label for="start">Start date:</label>
-                <input type="date" class="form-control" name="trip-start" value="2018-07-22" min="2018-01-01"
-                    max="2018-12-31">
-            </div>
-            <div class="col-sm-1">
-                <div class="form-group">
-                    <label for="time">Start Time:</label>
-                    <input type="time" class="form-control form-group" id="datetimepicker">
-                </div>
-            </div>
-            <div class="col-sm-1">
-                <div class="form-group">
-                    <label for="time">End Time:</label>
-                    <input type="time" class="form-control form-group" id="datetimepicker">
-                </div>
-            </div>
-            <div class="col-sm-1">
-                <label for="number">Frequency:</label>
-                <input type="number" class="form-control" name="number" value="530.00" min="530.00"
-                    max="1701.99">
-            </div>
-            <div class="col-sm-1">
-                <label for="text">Call Letters:</label>
-                <input type="text" class="form-control" name="text" value="Call Sign">
-            </div>
-            
-            <div>
-            <br>
-            </div>
-            <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">S-Units</button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">+</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">-</a></li>
-                </ul>
-                <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">dB</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-        </div>
+      </div>
     </form>
     <br>
     <hr>
@@ -141,57 +122,7 @@
           </div>
         </div>
       </div>
-      <br>
-      Is this signal Jammed?
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Yes
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-          No
-        </label>
-      </div>
-      <br>
-      <br>
-      Has this station's schedule changed?
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Yes
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-          No
-        </label>
-      </div>
-      <br>
-      <br>
-      Have you Sent or Received a QSL for this station?
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Yes
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-          No
-        </label>
-      </div>
-      <br>
-      <div class="col-lg-2 mb-3">
-        <label for="formFileMultiple" class="form-label">Upload Log Files:</label>
-        <input class="form-control" type="file" id="formFileMultiple" multiple>
-      </div>
-      <br>
-      <br>
+      
       <div class="col-lg-2 mb-3">
         <label for="formFileMultiple" class="form-label">Export Log Files:</label>
         <input class="form-control" type="file" id="formFileMultiple" multiple>

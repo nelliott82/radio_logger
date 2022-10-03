@@ -29,17 +29,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <link rel="manifest" href="manifest.json">
     <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
-    <link rel="stylesheet" type="text/css"href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
     <link rel="stylesheet" type="text/css" href="/src/client/src/components/vhflog.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-        
         <div class="container-fluid">
             <div id="row flex-nowrap">
                 <div id="d-flex sidebar-wrapper">
-                    <i class="fa-solid fa-bars fa-2x"></i>    
+                    <span class="icon-bar"><i class="fa-solid fa-bars fa-xl"></i></span>    
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>    
@@ -62,49 +61,158 @@
         <div>
            <h3>VHF Logging</h3>
         </div>
-        <div class="row g-1">
-            <div class="col-sm-1">
-                <label for="start">Start date:</label>
-                <input type="date" class="form-control" name="trip-start" value="2018-07-22" min="2018-01-01"
-                    max="2018-12-31">
-            </div>
-            <div class="col-sm-1">
-                <div class="form-group">
-                    <label for="time">Start Time:</label>
-                    <input type="time" class="form-control form-group" id="datetimepicker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm">
+                    <label for="start">Start Date:</label>
+                    <input type="date" class="form-control" name="trip-start" value="2018-07-22" min="2018-01-01"
+                        max="2018-12-31">
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="time">Start Time:</label>
+                        <input type="time" class="form-control form-group" id="datetimepicker">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="time">End Time:</label>
+                        <input type="time" class="form-control form-group" id="datetimepicker">
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <label for="number">Frequency:</label>
+                    <input type="number" class="form-control" name="number" value="50000.00" min="50000.00" max="450000.00">
+                </div>
+                <div class="col-sm-1">
+                    <label for="text">Call Sign/License:</label>
+                    <input type="text" class="form-control" name="text" value="Call Sign">
+                </div>
+                <div class="col-sm-1">
+                    <label for="text">Type:</label>
+                    <input type="text" class="form-control" name="text" value="Call Sign">
+                </div>
+                <div class="col-sm-1">
+                    <label for="number">Tone:</label>
+                    <input type="select" class="form-control" name="select" value="67.00" min="60.00" max="300.00">
+                </div>
+                
+                <div class="col">
+                    <label for="text">Mode:</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="AM">AM</option>
+                        <option value="CW">CW</option>
+                        <option value="LSB">LSB</option>
+                        <option value="USB">USB</option>
+                        <option value="FM">FM</option>
+                        <option value="PSK">PSK</option>
+                        <option value="AFSK">AFSK</option>
+                        <option value="RTTY">RTTY</option>
+                    </select>
+                </div>
+                </div>
+                    <div class="col">
+                        <label for="text">Band:</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="6m">6m</option>
+                            <option value="4m">4m</option> <!-- This should be greyed out if user is non-UK based -->
+                            <option value="2m">2m</option>
+                            <option value="1.25,">1.25m</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <fieldset class="toggle">
+                            <legend>Repeater:</legend>
+                            <div>
+                                <input type="checkbox" id="toggle" name="toggle" checked>
+                                <label for="toggle">es</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle" name="toggle">
+                                <label for="toggle">No</label>
+                            </div>
+                        </fieldset>
+                        <div class="col">
+                            <fieldset class="toggle">
+                                <legend>Simplex:</legend>
+                                <div>
+                                    <input type="checkbox" id="toggle" name="toggle" checked>
+                                    <label for="toggle">es</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="toggle" name="toggle">
+                                    <label for="toggle">No</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-1">
-                <div class="form-group">
-                    <label for="time">Start Time:</label>
-                    <input type="time" class="form-control form-group" id="datetimepicker">
+                </form>
+                <section>
+                    <div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td id="buttonrow">
+                                    <input type="button" value="Button">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td id="buttonrow">
+                                    <input type="button" value="Button">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td id="buttonrow">
+                                    <input type="button" value="Button">
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </section>
+                <div class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-1">
-                <div class="form-group">
-                    <label for="time">Start Time:</label>
-                    <input type="time" class="form-control form-group" id="datetimepicker">
-            </div>
             </div>
         </div>
     </form>
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>      
     <script type="text/javascript" src="/index.js"></script>
     <script type="text/javascript" defer src="/src/client/src/components/scanLog.js"></script>
 </body>

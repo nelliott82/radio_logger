@@ -53,7 +53,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname +"/src/client/src/components"));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.sendFile(__dirname + '/index.html')
 });
 
 app.get('/dashboard', (req, res) => {

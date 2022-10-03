@@ -37,6 +37,7 @@
     "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
+    "mongo-express": "^1.0.0",
     "mongodb": "^4.9.1",
     "mongoose": "^6.5.5",
     "nodemon": "^2.0.19",

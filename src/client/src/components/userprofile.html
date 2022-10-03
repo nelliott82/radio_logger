@@ -2,206 +2,562 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Logger</title>
-    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
-    <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-     <meta name="keywords" content="">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-        integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
-        integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-        integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
-    <link rel="stylesheet" href="/src/client/src/components/userprofile.css">
-    <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Logger</title>
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+  <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="gray" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+    integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+    integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+    integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+    integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/src/client/src/components/userprofile.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-        
-        <div class="container-fluid">
-            <div id="row flex-nowrap">
-                <div id="d-flex sidebar-wrapper">
-                    <i class="fa-solid fa-bars fa-2x"></i>    
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>    
-                    </button>
-                    <a class="navbar-brand mb-0 h1" href="#">RadioLogger</a>
-                    <ul class="sidebar-nav sidebar-brand">
-                        <a class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
-                        <div class="collapse navbar-collapse navHeaderCollapse"></div>
-                    </ul>
-                </div>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
+    <div class="container-fluid">
+      <div id="row flex-nowrap">
+        <div id="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel">RadioLogger</h5>
+            <button class="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+              <i class="fa fa-bars fa-lg"></i>
+            </button>
+          </div>
+          <div class="offcanvas-body">
+            <p>Some text lorem ipsum.</p>
+            <p>Some text lorem ipsum.</p>
+            <button class="btn btn-secondary" type="button">A Button</button>
+          </div>
         </div>
-        <p><i class="fa-solid fa-toggle-off fa-fw fa-2x"></i></p> <!-- Light/Dark Theme Switch-->
-        <p><i class="fa-solid fa-toggle-on fa-2x fa-fw"></i></p> <!-- Light/Dark Theme Switch -->
-        <p><i class="fa-solid fa-envelope fa-2x fa-fw"></i></p>
-        <p><i class="fa-solid fa-bell fa-2x fa-fw"></i></p>
-        <p><i class="fa-solid fa-circle-user fa-2x fa-fw"></i></p>
-    </nav>
-    <section style="background-color: gray;">
-        <div class="container py-5">
-          <div class="row">
-            <div class="col">
-              <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">User</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-                </ol>
-              </nav>
+      </div>
+    </div>
+    <p><i class="fa-solid fa-toggle-off fa-fw fa-2x"></i></p> <!-- Light/Dark Theme Switch-->
+    <p><i class="fa-solid fa-toggle-on fa-2x fa-fw"></i></p> <!-- Light/Dark Theme Switch -->
+    <p><i class="fa-solid fa-envelope fa-2x fa-fw"></i></p>
+    <p><i class="fa-solid fa-bell fa-2x fa-fw"></i></p>
+    <p><i class="fa-solid fa-circle-user fa-2x fa-fw"></i></p>
+  </nav>
+  <section style="background-color: gray;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">John Smith</h5>
+              <p class="text-muted mb-1">Full Stack Developer</p>
+              <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary">Follow</button>
+                <button type="button" class="btn btn-secondary" id="delete_{{ profile.id ">delete Profile</button>
+                <button type="button" class="btn btn-outline-secondary ms-1" id="delete_{{ profile.id }}">Delete
+                  Profile</button>
+                <button type="button" class="btn btn-outline-primary">Message</button>
+                <button type="button" class="btn btn-outline-secondary ms-1">Like</button>
+              </div>
+              <script>
+                /* jQuery */
+                {% for profile in profiles %}
+
+                $("#delete_{{ profile.id }}").mousedown(function (event) {
+                  let action = "deleteprofile"
+                  $.confirm({
+                    title: 'delete',
+                    content: 'Are you sure?',
+                    buttons: {
+                      confirm: function () {
+                        submit_to_modal({
+                          'profile_id': "{{ profile.id }}"
+                        },
+                          action)
+                      },
+                      cancel: function () {
+                        $.alert('cancel');
+                      }
+                    }
+                  });
+                })
+
+                {% endfor %}
+              </script>
+              <script>
+                /* jQuery */
+                {% for profile in profiles %}
+
+                $("#delete_{{ profile.id }}").mousedown(function (event) {
+                  let action = "deleteprofile"
+                  $.confirm({
+                    title: 'Delete',
+                    content: 'Are you sure?',
+                    buttons: {
+                      confirm: function () {
+                        submit_to_modal({
+                          'profile_id': "{{ profile.id }}"
+                        },
+                          action)
+                      },
+                      cancel: function () {
+                        $.alert('cancel');
+                      }
+                    }
+                  });
+                })
+
+                {% endfor %}
+              </script>
             </div>
           </div>
-      
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="card mb-4">
-                <div class="card-body text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                    class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3">John Smith</h5>
-                  <p class="text-muted mb-1">Full Stack Developer</p>
-                  <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                  <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary">Follow</button>
-                    <button type="button" class="btn btn-secondary">Edit Profile</button>
-                    <button type="button" class="btn btn-outline-primary">Message</button>
-                    <button type="button" class="btn btn-outline-secondary ms-1">Like</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-4 mb-lg-0">
-                <div class="card-body p-0">
-                  <ul class="list-group list-group-flush rounded-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <i class="fas fa-globe fa-lg text-warning"></i>
-                      <p class="mb-0"></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                      <p class="mb-0">github</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                      <p class="mb-0">@user</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                      <p class="mb-0">@user</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                      <p class="mb-0">fb-profile</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0">Website</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-github fa-lg" style="color: #333333;"></i>
+                  <p class="mb-0">github</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-twitter fa-lg" style="color: #55acee;"></i>
+                  <p class="mb-0">@user</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                  <p class="mb-0">@user</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">Facebook</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-whatsapp fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">WhatsApp</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fa-brands fa-skype fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">Skype</p>
+                </li>
+              </ul>
             </div>
-            <div class="col-lg-8">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Full Name</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">Johnatan Smith</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Email</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">example@example.com</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Phone</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">(097) 234-5678</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Mobile</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">(098) 765-4321</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Address</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Callsign</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">KB7NDF</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
-                  <div class="card mb-4 mb-md-0">
-                    <div class="card-body">
-                        <h3 class="card-title">Station</h3>
-                        <hr>
-                        <h3 class="card-title">Antenna(s)</h3>
-                        <hr>
-                        <h3 class="card-title">Rig(s)</h3>
-                      <br>
-                      <p></p>
-                    </div>
-                  </div>
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
                 </div>
-                <div class="col-md-6">
-                  <div class="card mb-4 mb-md-0">
-                    <div class="card-body">
-                      
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">Johnatan Smith</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">example@example.com</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">(097) 234-5678</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Mobile</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">(098) 765-4321</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Callsign</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">KB7NDF</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <h3 class="card-title"><u>Station</u></h3>
+                  <br>
+                  <style>
+                    * {box-sizing:border-box}
+
+                      /* Slideshow container */
+                      .slideshow-container {
+                        max-width: 1000px;
+                        position: relative;
+                        margin: auto;
+                      }
+
+                      /* Hide the images by default */
+                      .mySlides {
+                        display: none;
+                      }
+
+                      /* Next & previous buttons */
+                      .prev, .next {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 50%;
+                        width: auto;
+                        margin-top: -22px;
+                        padding: 16px;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 18px;
+                        transition: 0.6s ease;
+                        border-radius: 0 3px 3px 0;
+                        user-select: none;
+                      }
+
+                      /* Position the "next button" to the right */
+                      .next {
+                        right: 0;
+                        border-radius: 3px 0 0 3px;
+                      }
+
+                      /* On hover, add a black background color with a little bit see-through */
+                      .prev:hover, .next:hover {
+                        background-color: rgba(0,0,0,0.8);
+                      }
+
+                      /* Caption text */
+                      .text {
+                        color: #f2f2f2;
+                        font-size: 15px;
+                        padding: 8px 12px;
+                        position: absolute;
+                        bottom: 8px;
+                        width: 100%;
+                        text-align: center;
+                      }
+
+                      /* Number text (1/3 etc) */
+                      .numbertext {
+                        color: #f2f2f2;
+                        font-size: 12px;
+                        padding: 8px 12px;
+                        position: absolute;
+                        top: 0;
+                      }
+
+                      /* The dots/bullets/indicators */
+                      .dot {
+                        cursor: pointer;
+                        height: 15px;
+                        width: 15px;
+                        margin: 0 2px;
+                        background-color: #bbb;
+                        border-radius: 50%;
+                        display: inline-block;
+                        transition: background-color 0.6s ease;
+                      }
+
+                      .active, .dot:hover {
+                        background-color: #717171;
+                      }
+
+                      /* Fading animation */
+                      .fade {
+                        animation-name: fade;
+                        animation-duration: 1.5s;
+                      }
+
+                      @keyframes fade {
+                        from {opacity: .4}
+                        to {opacity: 1}
+                      }
+                  </style>
+                  <script>
+                    let slideIndex = 1;
+                      showSlides(slideIndex);
+
+                      // Next/previous controls
+                      function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                      }
+
+                      // Thumbnail image controls
+                      function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                      }
+
+                      function showSlides(n) {
+                        let i;
+                        let slides = document.getElementsByClassName("mySlides");
+                        let dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) { slideIndex = 1 }
+                        if (n < 1) { slideIndex = slides.length }
+                        for (i = 0; i < slides.length; i++) {
+                          slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                          dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                      } 
+                  </script>
+                  <!-- Slideshow container -->
+                  <div class="slideshow-container">
+                  
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                      <div class="numbertext">1 / 3</div>
+                      <img src="img1.jpg" style="width:100%">
+                      <div class="text">Caption Text</div>
                     </div>
+                  
+                    <div class="mySlides fade">
+                      <div class="numbertext">2 / 3</div>
+                      <img src="img2.jpg" style="width:100%">
+                      <div class="text">Caption Two</div>
+                    </div>
+                  
+                    <div class="mySlides fade">
+                      <div class="numbertext">3 / 3</div>
+                      <img src="img3.jpg" style="width:100%">
+                      <div class="text">Caption Three</div>
+                    </div>
+                  
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
                   </div>
+                  <br>
+                  
+                  <!-- The dots/circles -->
+                  <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                  </div>
+                  <br>
+                  <hr>
+                  <h3 class="card-title"><u>Antenna(s)</u></h3>
+                  <hr>
+                  <h3 class="card-title"><u>Rig(s)</u></h3>
+                  <br>
+                  <div class="thumbnail">
+                    <img src="myimage.jpeg" />
+                    <div class="caption">caption</div>
+                  </div>
+                  <br>
+                  <p>Texthere</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    <script src="/index.js"></script>
-    <script defer src="swlLog.js"></script>
+      </div>
+    </div>
+  </section>
+  <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">Click to open Modal</a>
+  
+  <!-- basic modal -->
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+  
+          <!-- Edit info -->
+          <div class="container">
+  
+            <!-- Vertical navs -->
+            <div class="row">
+              <div class="col-md-2 mb-3">
+                <ul class="nav-vertical nav nav-pills flex-column" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#profile" role="tab"
+                      aria-controls="home" aria-selected="true">Edit profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#account" role="tab"
+                      aria-controls="profile" aria-selected="false">Account settings</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#password" role="tab"
+                      aria-controls="contact" aria-selected="false">Password</a>
+                  </li>
+                </ul>
+              </div>
+  
+              <!-- Pages -->
+              <div class="col-md-10">
+                <div class="tab-content" id="myTabContent">
+  
+                  <!-- Page : Edit profile -->
+                  <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">
+  
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label>First name</label>
+                        <div class="input-group">
+                          <InputText @bind-Value="Model.OldPassword" class="form-control" placeholder="Firstname"
+                            aria-label="" aria-describedby="basic-addon1" />
+                        </div>
+                        <ValidationMessage For="@(() => Model.OldPassword)" />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>Last name</label>
+                        <div class="input-group">
+                          <InputText @bind-Value="Model.OldPassword" class="form-control" placeholder="Lastname"
+                            aria-label="" aria-describedby="basic-addon1" />
+                        </div>
+                        <ValidationMessage For="@(() => Model.OldPassword)" />
+                      </div>
+                    </div>
+  
+                    <br />
+                    <label>About you</label>
+                    <div class="input-group">
+                      <textarea @bind-Value="Model.NewPassword" class="form-control"
+                        placeholder="Tell us something about you!" aria-label=""
+                        aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <ValidationMessage For="@(() => Model.NewPassword)" />
+                    <br />
+  
+                  </div>
+  
+                  <!-- Page : Account -->
+                  <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="profile-tab">
+  
+                    <label>User name</label>
+                    <div class="input-group">
+                      <InputText @bind-Value="Model.UserName" class="form-control" placeholder="User name" aria-label=""
+                        aria-describedby="basic-addon1" />
+                    </div>
+                    <ValidationMessage For="@(() => Model.UserName)" />
+                    <br />
+                    <label>Email</label>
+                    <div class="input-group">
+                      <InputText @bind-Value="Model.Email" class="form-control" placeholder="Email" aria-label=""
+                        aria-describedby="basic-addon1" />
+                    </div>
+                    <ValidationMessage For="@(() => Model.Email)" />
+                    <br />
+                    <div class="box-section bg-light">
+                      <h3>Delete Account</h3>
+                      Delete your account and all the associated information.&nbsp;<button style="float: right"
+                        class="btn btn-danger">Delete Account</button>
+                    </div>
+  
+                  </div>
+  
+                  <!-- Page : Password -->
+                  <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="contact-tab">
+  
+                    <label>Old password</label>
+                    <div class="input-group">
+                      <InputText @bind-Value="Model.OldPassword" class="form-control" placeholder="Old password"
+                        aria-label="" aria-describedby="basic-addon1" />
+                    </div>
+                    <ValidationMessage For="@(() => Model.OldPassword)" />
+                    <br />
+                    <label>New password</label>
+                    <div class="input-group">
+                      <InputText @bind-Value="Model.NewPassword" class="form-control" placeholder="New password"
+                        aria-label="" aria-describedby="basic-addon1" />
+                    </div>
+                    <ValidationMessage For="@(() => Model.NewPassword)" />
+                    <br />
+                    <button class="btn btn-danger">Change password</button>
+                    <br /><br />
+                    </div>
+                </div>
+              </div>
+              <!-- /.col-md-8 -->
+            </div>
+          </div>
+          <!-- Edit info -->
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/index.js"></script>
+  <script defer src="swlLog.js"></script>
 </body>
+
 </html>

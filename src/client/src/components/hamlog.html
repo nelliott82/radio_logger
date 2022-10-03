@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Logger</title>
     <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-     <meta name="keywords" content="">
+    <meta name="keywords" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+        integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
         integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -26,27 +28,29 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta name="theme-color" content="gray" />
     <link rel="manifest" href="/manifest.json">
     <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/src/client/src/components/hamlog.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
-        
+
         <div class="container-fluid">
             <div id="row flex-nowrap">
                 <div id="d-flex sidebar-wrapper">
-                    <i class="fa-solid fa-bars fa-2x"></i>    
+                    <i class="fa-solid fa-bars fa-2x"></i>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>    
+                    <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand mb-0 h1" href="#">RadioLogger</a>
                     <ul class="sidebar-nav sidebar-brand">
-                        <a class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
+                        <a
+                            class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
                         <div class="collapse navbar-collapse navHeaderCollapse"></div>
                     </ul>
                 </div>
@@ -82,8 +86,7 @@
             </div>
             <div class="col-sm-1">
                 <label for="number">Frequency:</label>
-                <input type="number" class="form-control" name="number" value="1.800.00" min="1800.00"
-                    max="29700.00">
+                <input type="number" class="form-control" name="number" value="1.800.00" min="1800.00" max="29700.00">
             </div>
             <div class="col-sm-1">
                 <label for="text">Call Sign:</label>
@@ -91,64 +94,60 @@
             </div>
             <div class="col-sm-1">
                 <label for="text">Name:</label>
-                <input type="text" class="form-control" name="text" value="Call Sign">
+                <input type="text" class="form-control" name="text" value="Name">
             </div>
-            
+
             <div class="col-sm-1">
                 <label for="text">Continent:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">Country:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">USA</option>
-                <option value="2">Canada</option>
-                <option value="3">Mexico</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">USA</option>
+                    <option value="2">Canada</option>
+                    <option value="3">Mexico</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">ITU Region:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="text">ITU Zone:</label>
                 <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="col-sm-1">
                 <label for="number">SINPO:</label>
-                <input type="number" class="form-control" name="number" value="11111" min="11111"
-                    max="99999">
+                <input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
             </div>
             <div class="col-sm-1">
                 <label for="number">SINAD:</label>
-                <input type="number" class="form-control" name="number" value="11111" min="11111"
-                    max="99999">
+                <input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
             </div>
             <div class="col-sm-1">
                 <label for="number">R-S-T Sent:</label>
-                <input type="number" class="form-control" name="number" value="111" min="111"
-                    max="999">
+                <input type="number" class="form-control" name="number" value="111" min="111" max="999">
             </div>
             <div class="col-sm-1">
                 <label for="number">R-S-T Received:</label>
-                <input type="number" class="form-control" name="number" value="111" min="111"
-                    max="999">
+                <input type="number" class="form-control" name="number" value="111" min="111" max="999">
             </div>
             <div class="col-sm-1">
                 <label for="text">Band:</label>
@@ -196,38 +195,6 @@
                     <option value="RTTY">RTTY</option>
                 </select>
             </div>
-            <div class="col-sm-1">
-                <label for="text">Program Language:</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option value="English">English</option>
-                    <option value="Russian">Russian</option>
-                    <option value="French">French</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="Chinese">Chinese</option>
-                    <option value="Japanese">Japanese</option>
-                    <option value="Korean">Korean</option>
-                </select>
-            </div>
-            <div>
-            <br>
-            </div>
-            <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">S-Units</button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">+</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">-</a></li>
-                </ul>
-                <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">dB</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
         </div>
     </form>
     <br>
@@ -240,37 +207,39 @@
     <hr>
     <div class="modal" tabindex="-1">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
         </div>
-      </div>
-      
-      <div class="col-lg-2 mb-3">
+    </div>
+
+    <div class="col-lg-2 mb-3">
         <label for="formFileMultiple" class="form-label">Upload Log Files:</label>
         <input class="form-control" type="file" id="formFileMultiple" multiple>
-      </div>
-      <br>
-      <br>
-      <div class="col-lg-2 mb-3">
+    </div>
+    <br>
+    <br>
+    <div class="col-lg-2 mb-3">
         <label for="formFileMultiple" class="form-label">Export Log Files:</label>
         <input class="form-control" type="file" id="formFileMultiple" multiple>
-      </div>
-      <br>
+    </div>
+    <br>
     <a class="btn btn-primary" href="#">
         <i class="fa-solid fa-floppy-disk fa-lg"></i> Save Log </a>
     <a class="btn btn-danger" href="#">
         <i class="fa-solid fa-trash fa-lg"></i> Delete Log </a>
+    <a class="btn btn-secondary" href="#">
+        <i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
     <a class="btn btn-secondary" href="#">
         <i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
     <br>
@@ -281,10 +250,109 @@
         <i class="fa-solid fa-trash fa-lg"></i> End QSO </a>
     <a class="btn btn-secondary" href="#">
         <i class="fa-solid fa-edit fa-lg"></i> Edit QSO </a>
-      <br>
-      <br>
-      <br>
+    <a class="btn btn-secondary" href="#">
+        <i class="fa-solid fa-edit fa-lg"></i> Save QSO </a>
+    <div>
+        <h1>Current QSO's</h1>
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <input type="button" value="Generate a table" onclick="generateTable()" />
+    <script>
+        function generateTable() {
+            // creates a <table> element and a <tbody> element
+            const tbl = document.createElement("table");
+            const tblBody = document.createElement("tbody");
+
+            // creating all cells
+            for (let i = 0; i < 2; i++) {
+                // creates a table row
+                const row = document.createElement("tr");
+
+                for (let j = 0; j < 2; j++) {
+                    // Create a <td> element and a text node, make the text
+                    // node the contents of the <td>, and put the <td> at
+                    // the end of the table row
+                    const cell = document.createElement("td");
+                    const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+
+                // add the row to the end of the table body
+                tblBody.appendChild(row);
+            }
+
+            // put the <tbody> in the <table>
+            tbl.appendChild(tblBody);
+            // appends <table> into <body>
+            document.body.appendChild(tbl);
+            // sets the border attribute of tbl to '2'
+            tbl.setAttribute("border", "2");
+        } 
+    </script>
+    <div>
+        <h1>Previous QSO's</h1>
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script src="index.js"></script>
     <script defer src="swlLog.js"></script>
 </body>
+
 </html>
