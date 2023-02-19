@@ -1,9 +1,11 @@
 {
-
+  require('./models/User')
+  app.use(require('./routes'));
+  
   async function registerServiceWorker() {
     if ("serviceWorker" in navigator) {
       try {
-        const registration = await navigator.serviceWorker.register("/sw.js", {
+        const registration = await navigator.serviceWorker.register("/serviceWorker.js", {
           scope: "/",
         });
         if (registration.installing) {

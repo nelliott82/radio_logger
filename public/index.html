@@ -2,72 +2,281 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Logger</title>
-    <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-    <meta name="keywords" content="">
-    <meta name="theme-color" content="gray" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-        integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
-        integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-        integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-    <link rel="manifest" href="manifest.json">
-    <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
-    <link rel='stylesheet' type='text/css' href='/src/client/src/components/index.css'>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Radio Logger</title>
+	<meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+	<meta name="keywords" content="">
+	<meta name="theme-color" content="gray" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+		integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+		integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+		integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+		integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+		integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+		integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="manifest" href="manifest.json">
+	<link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
+	<link rel='stylesheet' type='text/css' href='/src/client/src/components/index.css'>
+	<link rel='stylesheet' type='text/css' href='/public/styles.css'>
 </head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
 
-<body>
-  <div class="container right-panel-active">
-    <!-- Sign Up -->
-    <div class="container__form container--signup">
-      <form action="#" class="form" id="form1">
-        <h2 class="form__title">Sign Up</h2>
-        <input type="text" placeholder="User" class="input" />
-        <input type="email" placeholder="Email" class="input" />
-        <input type="password" placeholder="Password" class="input" />
-        <button class="btn">Sign Up</button>
-      </form>
-    </div>
-  
-    <!-- Sign In -->
-    <div class="container__form container--signin">
-      <form action="#" class="form" id="form2">
-        <h2 class="form__title">Sign In</h2>
-        <input type="email" placeholder="Email" class="input" />
-        <input type="password" placeholder="Password" class="input" />
-        <a href="#" class="link">Forgot your password?</a>
-        <button class="btn">Sign In</button>
-      </form>
-    </div>
-  
-    <!-- Overlay -->
-    <div class="container__overlay">
-      <div class="overlay">
-        <div class="overlay__panel overlay--left">
-          <button class="btn" id="signIn">Sign In</button>
-        </div>
-        <div class="overlay__panel overlay--right">
-          <button class="btn" id="signUp">Sign Up</button>
-        </div>
-      </div>
-    </div>
-  </div>
+		a,
+		em {
+			color: white;
+		}
+
+		body {
+			height: 100vh;
+			width: 100vw;
+			background-color: blue;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			font-family: "Fira Code";
+		}
+
+		.container {
+			width: 700px;
+			height: 500px;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: rgba(0, 0, 0, .3);
+			display: -webkit-box;
+			transition: width .3s ease-in-out;
+		}
+
+		.tabs {
+			width: 200px;
+			height: 100%;
+			font-size: 1em;
+			transition: all .3s ease-in-out;
+		}
+
+		.tabs ul {
+			height: inherit;
+			list-style: none;
+			padding: 60px 20px;
+			box-sizing: border-box;
+			background: rgba(0, 0, 0, .4);
+			border-right: 1px solid rgba(0, 0, 0, .4);
+		}
+
+		.tabs li {
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			margin-top: 50px;
+			background: rgba(51, 78, 153, .8);
+			cursor: pointer;
+			transition: background .3s;
+		}
+
+		.tabs li:hover {
+			background: rgba(255, 99, 71, .8);
+		}
+
+		.tabs li a {
+			display: block;
+			line-height: 50px;
+			text-align: center;
+		}
+
+		.forms {
+			width: 500px;
+			height: 100%;
+			transition: width .3s ease-in-out;
+		}
+
+		.forms p {
+			color: white;
+			font-size: 1.5em;
+			text-align: center;
+			transition: all .3s ease-in-out;
+		}
+
+		.register,
+		.login,
+		.reset {
+			display: none;
+			position: absolute;
+			width: 500px;
+			height: 100%;
+			box-sizing: border-box;
+			padding: 40px 20px;
+		}
+
+		.register {
+			display: block;
+		}
+
+		.container form {
+			padding: 45px 0px;
+		}
+
+		input {
+			background: rgba(0, 0, 0, .2);
+			font-size: 1em;
+			border: 0;
+			outline: none;
+			color: white;
+			transition: width .2s linear, border-bottom .2s linear;
+		}
+
+		input:active,
+		input:focus {
+			border-bottom: 4px solid royalblue;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"] {
+			width: 460px;
+			height: 40px;
+			height: 50px;
+			padding: 10px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+
+		input[type="submit"] {
+			padding: 10px;
+			width: 100px;
+			background: royalblue;
+			border: 0px;
+			color: white;
+			float: right;
+			cursor: pointer;
+			transition: background .3s;
+		}
+
+		input[type="submit"]:hover {
+			background: rgba(51, 78, 153, .8);
+		}
+
+		@media (max-width: 900px) {
+			.container {
+				width: 525px;
+			}
+
+			.tabs {
+				width: 150px;
+				font-size: .9em;
+			}
+
+			.tabs ul {
+				padding: 60px 15px;
+			}
+
+			.forms {
+				width: 375px;
+			}
+
+			.forms p {
+				font-size: 1.2em;
+			}
+
+			.register,
+			.login,
+			.reset {
+				width: 375px;
+			}
+
+			input[type="text"],
+			input[type="password"],
+			input[type="email"] {
+				width: 335px;
+			}
+		}
+
+		@media (max-width: 600px) {}
+	</style>
+	<script>
+		// Connect.js
+		$('#register').on('click',function() {
+			$('.register').siblings().hide();
+			$('.register').slideToggle();
+		});
+		$('#login').on('click',function() {
+			$('.login').siblings().hide();
+			$('.login').slideToggle();
+		});
+		$('#reset').on('click',function() {
+			$('.reset').siblings().hide();
+			$('.reset').slideToggle();
+		});
+	</script>
+	<div class="container">
+		<div class="tabs">
+			<ul>
+				<li id="register"><a>Register</a></li>
+				<li id="login"><a>Login</a></li>
+				<li id="reset"><a>Reset</a></li>
+			</ul>
+		</div>
+		<div class="forms">
+			<div class="register">
+				<p>Register</p>
+
+				<form method="post" name="register" action="signUp.js">
+					<input class="field" name="uname" required type="text" placeholder="Username" />
+					<input class="field" name="email" required type="email" placeholder="myusername@domain.com" />
+					<input id="p1" class="field" name="pass" required type="password" placeholder="Password"
+						onchange="form1.p2.pattern=this.value;" />
+					<input id="p2" class="field" name="pass_confirm" required type="password"
+						placeholder="Rewrite Password" required />
+					<input type="submit" onclick="checkpass()" value="Sign Up" />
+				</form>
+			</div>
+
+			<div class="login">
+				<p>Sign In</p>
+
+				<form method="post" name="register" action="signIn.js">
+					<input class="field" name="email" required type="email" placeholder="* myusername@domain.com" />
+					<input class="field" name="pass" required type="password" name="pass" placeholder="* Password" />
+					<input type="checkbox" name="terms"> <em>Keep me logged in </em> <input type="submit"
+						value="Login" />
+				</form>
+			</div>
+
+			<div class="reset">
+				<p>Reset Your Password</p>
+
+				<form method="post" name="register" action="resetPassword.js">
+					<input class="field" name="email" type="email" placeholder="*myusername@domain.com" required />
+					<input class="field" name="pass_old" type="password" placeholder="*Old Password" required />
+					<input class="field" name="pass_new" type="password" placeholder="*New Password" required />
+					<div class="btn">
+						<input type="submit" value="Get New One !" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

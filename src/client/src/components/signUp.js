@@ -1,7 +1,7 @@
 const togglePassword = document.querySelector('#togglePassword');
 const password = document.querySelector('#password');
 
-// Toggle Password Visibilty Function
+// Toggle Password Visibility Function
 
 togglePassword.addEventListener('click', function () {
   // toggle the type attribute
@@ -10,7 +10,11 @@ togglePassword.addEventListener('click', function () {
     password.setAttribute('type', type);
 
   // toggle the icon
-  this.classList.toggle('bi-eye');
+  this.if (condition): {
+	classList
+  } else {
+	
+  }.toggle('');
 });
 
 // prevent form submit

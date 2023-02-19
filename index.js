@@ -22,9 +22,13 @@ function myFunction(x) {
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+window.addEventListener('load', () => {
+  const modal = document.querySelector('myModal');
+  if (modal) {
+    modal.classList.add('show');
+    modal.style.display = 'block';
+  }
+});
 
 // Dark Mode - Light Mode Toggle switch FA Icon
 var icon = $('.fa-toggle');
@@ -278,7 +282,7 @@ const createUser = (user) => { axios.post('https://reqres.in/api/users', user) .
 
 const getUsers = () => {
   axios
-    .get('https://reqres.in/api/users')
+    .get('localhost:/api/users')
     .then((response) => {
       const users = response.data.data;
       console.log(`GET users`, users);
@@ -287,7 +291,7 @@ const getUsers = () => {
 };
 
 // Delete User
-const deleteUser = (elem, id) => {axios.delete(`https://reqres.in/api/users/${id}`).then(response => {
+const deleteUser = (elem, id) => {axios.delete(`localhost:/api/users/${id}`).then(response => {
 console.log(`DELETE: user is removed`, id);// remove elem from DOM
 elem.remove();
 })

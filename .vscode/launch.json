@@ -2,36 +2,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js",
+            "name": "Chrome",
+            "type": "chrome",
             "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
-        },
-        {
-            "name": "Launch via NPM",
-            "request": "launch",
-            "runtimeArgs": [
-                "run-script",
-                "debug"
-            ],
-            "runtimeExecutable": "npm",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            }
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "",
+            "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/server.js"
+            "program": "${workspaceFolder}//"
         },
-
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/",
+            "args": [
+                "src/client/src/App.js"
+            ],
+        }
     ]
 }

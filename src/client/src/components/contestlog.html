@@ -1,14 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Radio Logger | Contest Log</title>
+	<meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+	<meta name="keywords" content="">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+		integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+		integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+		integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+		integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+		integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+		integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<meta name="theme-color" content="gray" />
+	<link rel="manifest" href="/manifest.json">
+	<link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="/src/client/src/components/hamlog.css">
 </head>
+
 <body>
-    <h1>contest log page!</h1>
-    <script src="/src/client/src/components/contestLog.js"></script>
-    <script src="/index.js"></script>
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary" role="navigation">
+
+		<div class="container-fluid">
+			<div id="row flex-nowrap">
+				<div id="d-flex sidebar-wrapper">
+					<button>
+						<i class="fa-solid fa-bars fa-2x"></i>
+					</button>
+					<a class="navbar-brand mb-0 h1" href="#">RadioLogger</a>
+					<ul class="sidebar-nav sidebar-brand">
+						<a
+							class="d-flex align-items-lg-start mb-3 mb-md-0 me-md-auto link-primary text-decoration-none"></a>
+						<div class="collapse navbar-collapse navHeaderCollapse"></div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<p><i class="fa-solid fa-toggle-off fa-fw fa-2x"></i></p> <!-- Light/Dark Theme Switch-->
+		<p><i class="fa-solid fa-toggle-on fa-2x fa-fw"></i></p> <!-- Light/Dark Theme Switch -->
+		<p><i class="fa-solid fa-envelope fa-2x fa-fw"></i></p>
+		<p><i class="fa-solid fa-bell fa-2x fa-fw"></i></p>
+		<p><i class="fa-solid fa-circle-user fa-2x fa-fw"></i></p>
+	</nav>
+	<form>
+		<div>
+			<h3>Contest Log</h3>
+		</div>
+		<div class="row g-1">
+			<div class="col-sm-1">
+				<label for="start">Date:</label>
+				<input type="date" class="form-control" name="trip-start" value="2018-07-22" min="2018-01-01"
+					max="2018-12-31">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<label for="time">QSO Start Time:</label>
+					<input type="time" class="form-control form-group" id="datetimepicker">
+				</div>
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<label for="time">QSO End Time:</label>
+					<input type="time" class="form-control form-group" id="datetimepicker">
+				</div>
+			</div>
+			<div class="col-sm-1">
+				<label for="number">Frequency:</label>
+				<input type="number" class="form-control" name="number" value="1.800.00" min="1800.00" max="29700.00">
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Call Sign:</label>
+				<input type="text" class="form-control" name="text" value="Call Sign">
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Name:</label>
+				<input type="text" class="form-control" name="text" value="Name">
+			</div>
+
+			<div class="col-sm-1">
+				<label for="text">Continent:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>Open this select menu</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Country:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>Open this select menu</option>
+					<option value="1">USA</option>
+					<option value="2">Canada</option>
+					<option value="3">Mexico</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="text">ITU Region:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>Open this select menu</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="text">ITU Zone:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>Open this select menu</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="number">SINPO:</label>
+				<input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
+			</div>
+			<div class="col-sm-1">
+				<label for="number">SINAD:</label>
+				<input type="number" class="form-control" name="number" value="11111" min="11111" max="99999">
+			</div>
+			<div class="col-sm-1">
+				<label for="number">R-S-T Sent:</label>
+				<input type="number" class="form-control" name="number" value="111" min="111" max="999">
+			</div>
+			<div class="col-sm-1">
+				<label for="number">R-S-T Received:</label>
+				<input type="number" class="form-control" name="number" value="111" min="111" max="999">
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Band:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option value="160m">160m</option>
+					<option value="80m">80m</option>
+					<option value="60m">60m</option>
+					<option value="60m">40m</option>
+					<option value="30m">30m</option>
+					<option value="20m">20m</option>
+					<option value="17m">17m</option>
+					<option value="15m">15m</option>
+					<option value="12m">12m</option>
+					<option value="10m">10m</option>
+					<option value="6m">6m</option>
+					<option value="2m">2m</option>
+					<option value="1.25m">1.25m</option>
+					<option value="70cm">70cm</option>
+					<option value="33cm">33cm</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Mode:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option value="AM">AM</option>
+					<option value="CW">CW</option>
+					<option value="LSB">LSB</option>
+					<option value="USB">USB</option>
+					<option value="FM">FM</option>
+					<option value="PSK">PSK</option>
+					<option value="AFSK">AFSK</option>
+					<option value="RTTY">RTTY</option>
+				</select>
+			</div>
+			<div class="col-sm-1">
+				<label for="text">Emission Type:</label>
+				<select class="form-select" aria-label="Default select example">
+					<option value="A0A">A0A</option>
+					<option value="A1A">A1A</option>
+					<option value="A2A">A2A</option>
+					<option value="A3A">A3A</option>
+					<option value="A0B">FM</option>
+					<option value="PSK">PSK</option>
+					<option value="AFSK">AFSK</option>
+					<option value="RTTY">RTTY</option>
+				</select>
+			</div>
+		</div>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<div class="mb-3">
+		<label for="exampleFormControlTextarea1" class="form-label">QSO Notes & Comments:</label>
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
+	<hr>
+	<div class="modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-2 mb-3">
+		<label for="formFileMultiple" class="form-label">Upload Log Files:</label>
+		<input class="form-control" type="file" id="formFileMultiple" multiple>
+	</div>
+	<br>
+	<br>
+	<div class="col-lg-2 mb-3">
+		<label for="formFileMultiple" class="form-label">Export Log Files:</label>
+		<input class="form-control" type="file" id="formFileMultiple" multiple>
+	</div>
+	<br>
+	<a class="btn btn-primary" href="#">
+		<i class="fa-solid fa-floppy-disk fa-lg"></i> Save Log </a>
+	<a class="btn btn-danger" href="#">
+		<i class="fa-solid fa-trash fa-lg"></i> Delete Log </a>
+	<a class="btn btn-secondary" href="#">
+		<i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
+	<a class="btn btn-secondary" href="#">
+		<i class="fa-solid fa-edit fa-lg"></i> Edit Log </a>
+	<br>
+	<br>
+	<a class="btn btn-primary" href="#">
+		<i class="fa-solid fa-floppy-disk fa-lg"></i> Start QSO </a>
+	<a class="btn btn-danger" href="#">
+		<i class="fa-solid fa-trash fa-lg"></i> End QSO </a>
+	<a class="btn btn-secondary" href="#">
+		<i class="fa-solid fa-edit fa-lg"></i> Edit QSO </a>
+	<a class="btn btn-secondary" href="#">
+		<i class="fa-solid fa-edit fa-lg"></i> Save QSO </a>
+	<div>
+		<h1>Current QSO's</h1>
+		<table class="table table-striped-columns">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">First</th>
+					<th scope="col">Last</th>
+					<th scope="col">Handle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<input type="button" value="Generate a table" onclick="generateTable()" />
+	<script>
+		function generateTable() {
+			// creates a <table> element and a <tbody> element
+			const tbl=document.createElement("table");
+			const tblBody=document.createElement("tbody");
+
+			// creating all cells
+			for(let i=0;i<2;i++) {
+				// creates a table row
+				const row=document.createElement("tr");
+
+				for(let j=0;j<2;j++) {
+					// Create a <td> element and a text node, make the text
+					// node the contents of the <td>, and put the <td> at
+					// the end of the table row
+					const cell=document.createElement("td");
+					const cellText=document.createTextNode(`cell in row ${i}, column ${j}`);
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+				}
+
+				// add the row to the end of the table body
+				tblBody.appendChild(row);
+			}
+
+			// put the <tbody> in the <table>
+			tbl.appendChild(tblBody);
+			// appends <table> into <body>
+			document.body.appendChild(tbl);
+			// sets the border attribute of tbl to '2'
+			tbl.setAttribute("border","2");
+		} 
+	</script>
+	<div>
+		<h1>Previous QSO's</h1>
+		<table class="table table-striped-columns">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">First</th>
+					<th scope="col">Last</th>
+					<th scope="col">Handle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" defer src="/src/client/src/components/contestLog.js"></script>
 </body>
+
 </html>

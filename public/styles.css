@@ -1,30 +1,51 @@
-.card{
-  width: 18rem;
+body {
+	background-color: dodgerblue;
 }
-.card-img-top{
-  width: 18rem;
-  height: 10rem;
-  object-fit: cover;
+
+.card {
+	width: 18rem;
+}
+
+.card-img-top {
+	width: 18rem;
+	height: 10rem;
+	object-fit: cover;
 }
 
 .dark-mode {
-  background-color: #000000;
+	background-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg: #000000;
-    --body-color: #FFFFFF;
-  }
-  .day.dark-scheme   { background:  #333; color: white; }
-  .night.dark-scheme { background: black; color: #ddd; }
+	:root {
+		--body-bg: #000000;
+		--body-color: #FFFFFF;
+	}
+
+	.day.dark-scheme {
+		background: #333;
+		color: white;
+	}
+
+	.night.dark-scheme {
+		background: black;
+		color: #ddd;
+	}
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --body-bg: #FFFFFF;
-    --body-color: #000000;
-  }
-  .day.light-scheme   { background: white; color: #555; }
-  .night.light-scheme { background:  #eee; color: black; }
+	:root {
+		--body-bg: #FFFFFF;
+		--body-color: #000000;
+	}
+
+	.day.light-scheme {
+		background: white;
+		color: #555;
+	}
+
+	.night.light-scheme {
+		background: #eee;
+		color: black;
+	}
 }
