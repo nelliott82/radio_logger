@@ -8,7 +8,9 @@ dotenv.config()
 const userSchema = new mongoose.Schema({
     username:{
         required:true,
-        type:String, [4, 'Too short, min is 4 characters'], max: [32, 'Too long, max is 32 characters']
+        type:String, 
+        enum:[4, 'Too short, min is 4 characters'], 
+        max: [32, 'Too long, max is 32 characters']
     },
 
     email:{
@@ -17,8 +19,10 @@ const userSchema = new mongoose.Schema({
          required:true,
     },
     password:{
-        type:String, min: [4, 'Too short, min is 4 characters'], max: [32, 'Too long, max is 32 characters',
-        required:String,
+        type:String, 
+        min: [4, 'Too short, min is 4 characters'], 
+        max: [32, 'Too long, max is 32 characters'],
+        required:true,
     },
     profilePic:{
         type:String,

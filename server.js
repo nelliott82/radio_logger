@@ -4,7 +4,6 @@ const app = express();
 const router = express.Router()
 const http = require('http');
 const hostname = '127.0.0.1';
-const port = 3000;
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -13,10 +12,13 @@ const cookieParser = require('cookie-parser')
 const componentsDirUrl = './src/client/src/components';
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/test');
+  await mongoose.connect('mongodb://localhost:27017/test')
+  .then(()=> console.log("Connected to MongoDB"))
+  .catch(err => console.log("Unable to connect ", err.message))
   
   // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
 }
+main()
 
 app.use(express.json());
 
@@ -185,4 +187,5 @@ app.configure(function() {
   app.use(allowCrossDomain);
 });
 */
-module.exports = router;
+const port = process.env.PORT || 3000
+app.listen(port, console.log(`Up and Running on port ${port}`))
