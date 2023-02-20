@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser')
 const componentsDirUrl = './src/client/src/components';
 
 async function main() {
+  mongoose.set('strictQuery', true)
   await mongoose.connect('mongodb://localhost:27017/test')
   .then(()=> console.log("Connected to MongoDB"))
   .catch(err => console.log("Unable to connect ", err.message))
