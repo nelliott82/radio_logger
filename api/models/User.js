@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
-import jwt from 'jsonwebtoken'127.0.0.1:27017127.0.0.1:27017127.0.0.1:27017127.0.0.1:27017127.0.0.1:27017127.0.0.1:27017127.0.0.1:27017;
+import jwt from 'jsonwebtoken'
 
 dotenv.config()
 

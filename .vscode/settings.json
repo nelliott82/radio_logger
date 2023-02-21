@@ -8,6 +8,10 @@
     "[javascript]": {
         "editor.maxTokenizationLineLength": 2500
     },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
     "[json]": {
         "editor.quickSuggestions": {
             "strings": true
