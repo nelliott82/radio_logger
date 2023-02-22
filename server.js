@@ -166,10 +166,15 @@ app.post('/signup', function(req, res){
   }
 });
 
-/* app.use((req, res) => {
+/* app.use((req, res) => 
   res.status(404).render('404', { title: '404' });
 });
 */
+
+app.get('*', (req, res) => {
+   res.status(404).sendFile(componentsDirUrl + '/404.html', { root: __dirname });
+});
+
 
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'example.com');
