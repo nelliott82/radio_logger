@@ -11,10 +11,8 @@ const handleTabClick = (tab) => {
 
     if (listElement.id === tab) {
       formElement.classList.remove('hidden');
-      listElement.style.background = 'rgba(255, 255, 255, .8)'
     } else {
       formElement.classList.add('hidden');
-      listElement.style.background = 'rgba(51, 78, 153, .8)'
     }
   }
 }
