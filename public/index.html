@@ -32,8 +32,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="manifest" href="manifest.json">
 	<link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
-	<link rel='stylesheet' type='text/css' href='/src/client/src/components/index.css'>
-	<link rel='stylesheet' type='text/css' href='/public/styles.css'>
+	<link rel='stylesheet' type='text/css' href='../src/client/src/components/index.css'>
+	<link rel='stylesheet' type='text/css' href='styles.css'>
 </head>
 	<style>
 		* {
@@ -95,6 +95,10 @@
 			transition: background .3s;
 		}
 
+		#register {
+			background:  rgba(255, 255, 255, .8);
+		}
+
 		.tabs li:hover {
 			background: rgba(255, 99, 71, .8);
 		}
@@ -121,7 +125,7 @@
 		.register,
 		.login,
 		.reset {
-			display: none;
+			display: 'block';
 			position: absolute;
 			width: 500px;
 			height: 100%;
@@ -129,8 +133,8 @@
 			padding: 40px 20px;
 		}
 
-		.register {
-			display: block;
+		.hidden {
+			display: none;
 		}
 
 		.container form {
@@ -252,7 +256,7 @@
 				</form>
 			</div>
 
-			<div class="login">
+			<div class="login hidden">
 				<p>Sign In</p>
 
 				<form method="post" name="register" action="signIn.js">
@@ -263,7 +267,7 @@
 				</form>
 			</div>
 
-			<div class="reset">
+			<div class="reset hidden">
 				<p>Reset Your Password</p>
 
 				<form method="post" name="register" action="resetPassword.js">
@@ -277,6 +281,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="tabs.js" ></script>
 </body>
 
 </html>
